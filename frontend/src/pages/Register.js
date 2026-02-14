@@ -19,14 +19,26 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Client-side validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.password) {
+      return;
+    }
+    
+    if (formData.password.length < 6) {
+      return;
+    }
+    
     const result = await register(
-      formData.name,
-      formData.email,
+      formData.name.trim(),
+      formData.email.trim(),
       formData.password,
       formData.role
     );
-    if (result.success) {
-      if (formData.role === 'teacher') {
+    
+    if (result.success && result.user) {
+      // Redirect based on user role
+      if (result.user.role === 'teacher') {
         navigate('/teacher/dashboard');
       } else {
         navigate('/student/dashboard');

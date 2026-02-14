@@ -18,15 +18,15 @@ async function seedDemoData() {
     await Attempt.deleteMany({});
     console.log('Cleared existing data');
 
-    // Create demo teacher
+    // Create demo teacher (password will be hashed by pre-save hook)
     const teacher = new User({
       name: 'Dr. Sarah Johnson',
       email: 'teacher@demo.com',
-      password: 'teacher123',
+      password: 'teacher123', // Will be hashed automatically
       role: 'teacher'
     });
     await teacher.save();
-    console.log('✅ Created teacher:', teacher.email);
+    console.log('✅ Created teacher:', teacher.email, '(password: teacher123)');
 
     // Create demo students
     const students = [
@@ -47,7 +47,7 @@ async function seedDemoData() {
       });
       await student.save();
       createdStudents.push(student);
-      console.log('✅ Created student:', student.email);
+      console.log('✅ Created student:', student.email, '(password: student123)');
     }
 
     // Create demo quizzes

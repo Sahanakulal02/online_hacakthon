@@ -42,38 +42,64 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post(`${API_URL}/auth/login`, { email, password });
+      const response = await axios.post(`${API_URL}/auth/login`, { 
+        email: email.trim().toLowerCase(), 
+        password 
+      });
       const { token, user } = response.data;
+      
+      if (!token || !user) {
+        toast.error('Invalid response from server');
+        return { success: false };
+      }
+      
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setUser(user);
       toast.success('Login successful!');
-      return { success: true };
+      return { success: true, user };
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed');
-      return { success: false };
+      const errorMessage = error.response?.data?.message || 
+                          error.response?.data?.errors?.[0]?.message || 
+                          'Login failed. Please check your credentials.';
+      toast.error(errorMessage);
+      return { success: false, error: errorMessage };
     }
   };
 
   const register = async (name, email, password, role = 'student') => {
     try {
       const response = await axios.post(`${API_URL}/auth/register`, {
-        name,
-        email,
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
         password,
         role
       });
+      
       const { token, user } = response.data;
+      
+      if (!token || !user) {
+        toast.error('Invalid response from server');
+        return { success: false };
+      }
+      
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setUser(user);
       toast.success('Registration successful!');
-      return { success: true };
+      return { success: true, user };
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Registration failed');
-      return { success: false };
+      // Handle validation errors
+      if (error.response?.data?.errors && Array.isArray(error.response.data.errors)) {
+        const errorMessages = error.response.data.errors.map(err => err.message).join(', ');
+        toast.error(errorMessages || 'Validation failed');
+      } else {
+        const errorMessage = error.response?.data?.message || 'Registration failed';
+        toast.error(errorMessage);
+      }
+      return { success: false, error: error.response?.data?.message };
     }
   };
 

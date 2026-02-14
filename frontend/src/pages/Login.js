@@ -14,22 +14,19 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await login(formData.email, formData.password);
-    if (result.success) {
-      // Wait a moment for state to update
-      setTimeout(() => {
-        const userStr = localStorage.getItem('user');
-        if (userStr) {
-          const user = JSON.parse(userStr);
-          if (user.role === 'teacher') {
-            navigate('/teacher/dashboard');
-          } else {
-            navigate('/student/dashboard');
-          }
-        } else {
-          navigate('/student/dashboard');
-        }
-      }, 100);
+    
+    if (!formData.email || !formData.password) {
+      return;
+    }
+    
+    const result = await login(formData.email.trim(), formData.password);
+    if (result.success && result.user) {
+      // Redirect based on user role
+      if (result.user.role === 'teacher') {
+        navigate('/teacher/dashboard');
+      } else {
+        navigate('/student/dashboard');
+      }
     }
   };
 
