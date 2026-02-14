@@ -1,0 +1,101 @@
+.leaderboard-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.tab-btn.active {
+  background: white;
+  color: #667eea;
+  border-color: white;
+}
+
+.leaderboard-table {
+  width: 100%;
+}
+
+.leaderboard-header {
+  display: grid;
+  grid-template-columns: 80px 2fr 80px 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 80px 2fr 80px 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.leaderboard-row:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-row.top-three {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-color: #667eea;
+}
+
+.rank-cell {
+  text-align: center;
+}
+
+.rank-icon {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.student-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .leaderboard-header,
+  .leaderboard-row {
+    grid-template-columns: 60px 1fr;
+    gap: 8px;
+  }
+
+  .leaderboard-header > div:nth-child(n+3),
+  .leaderboard-row > div:nth-child(n+3) {
+    display: none;
+  }
+}
+

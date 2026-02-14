@@ -1,0 +1,169 @@
+.result-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.result-header h1 {
+  color: white;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.accuracy-badge {
+  display: inline-block;
+  background: white;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.accuracy-badge h2 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.accuracy-success {
+  border: 5px solid #28a745;
+}
+
+.accuracy-warning {
+  border: 5px solid #ffc107;
+}
+
+.accuracy-danger {
+  border: 5px solid #dc3545;
+}
+
+.feedback-card {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-left: 4px solid #667eea;
+}
+
+.feedback-message {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+}
+
+.feedback-section {
+  margin-top: 24px;
+}
+
+.feedback-section h3 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.feedback-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.feedback-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.feedback-section li {
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.questions-review {
+  margin-top: 20px;
+}
+
+.question-review-item {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 4px solid;
+}
+
+.question-review-item.correct {
+  background: #d4edda;
+  border-color: #28a745;
+}
+
+.question-review-item.incorrect {
+  background: #f8d7da;
+  border-color: #dc3545;
+}
+
+.question-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.question-number {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.status-badge.correct {
+  background: #28a745;
+  color: white;
+}
+
+.status-badge.incorrect {
+  background: #dc3545;
+  color: white;
+}
+
+.points-earned {
+  color: #666;
+  font-size: 14px;
+}
+
+.question-text {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.answer-details {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.answer-details p {
+  margin: 8px 0;
+  color: #555;
+}
+
+.result-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
