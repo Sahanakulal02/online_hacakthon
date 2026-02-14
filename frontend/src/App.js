@@ -10,7 +10,9 @@ import StudentDashboard from './pages/StudentDashboard';
 import QuizList from './pages/QuizList';
 import TakeQuiz from './pages/TakeQuiz';
 import QuizResult from './pages/QuizResult';
+import StudentAnalytics from './pages/StudentAnalytics';
 import TeacherDashboard from './pages/TeacherDashboard';
+import TeacherAlerts from './pages/TeacherAlerts';
 import CreateQuiz from './pages/CreateQuiz';
 import Leaderboard from './pages/Leaderboard';
 import './App.css';
@@ -57,6 +59,14 @@ function App() {
               }
             />
             <Route
+              path="/student/analytics"
+              element={
+                <PrivateRoute>
+                  <StudentAnalytics />
+                </PrivateRoute>
+              }
+            />
+            <Route
               path="/teacher/dashboard"
               element={
                 <PrivateRoute role="teacher">
@@ -69,6 +79,14 @@ function App() {
               element={
                 <PrivateRoute role="teacher">
                   <CreateQuiz />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/teacher/alerts"
+              element={
+                <PrivateRoute role="teacher">
+                  <TeacherAlerts />
                 </PrivateRoute>
               }
             />

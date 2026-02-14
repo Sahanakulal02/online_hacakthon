@@ -145,10 +145,13 @@ const QuizResult = () => {
         <Link to="/student/quizzes" className="btn btn-primary">
           Take Another Quiz
         </Link>
+        <Link to="/student/analytics" className="btn btn-success">
+          View Analytics
+        </Link>
         <Link to="/student/dashboard" className="btn btn-secondary">
           Back to Dashboard
         </Link>
-        <Link to="/leaderboard" className="btn btn-success">
+        <Link to="/leaderboard" className="btn btn-secondary">
           View Leaderboard
         </Link>
       </div>

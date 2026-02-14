@@ -157,12 +157,17 @@ const TeacherDashboard = () => {
 
       <div className="card">
         <h2>Quick Actions</h2>
-        <Link to="/teacher/create-quiz" className="btn btn-primary" style={{ marginRight: '10px' }}>
-          Create New Quiz
-        </Link>
-        <Link to="/leaderboard" className="btn btn-secondary">
-          View Leaderboard
-        </Link>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <Link to="/teacher/create-quiz" className="btn btn-primary">
+            Create New Quiz
+          </Link>
+          <Link to="/teacher/alerts" className="btn btn-danger">
+            View Alerts
+          </Link>
+          <Link to="/leaderboard" className="btn btn-secondary">
+            View Leaderboard
+          </Link>
+        </div>
       </div>
     </div>
   );

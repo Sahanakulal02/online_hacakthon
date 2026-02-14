@@ -25,12 +25,14 @@ const Navbar = () => {
                 <>
                   <Link to="/student/dashboard">Dashboard</Link>
                   <Link to="/student/quizzes">Quizzes</Link>
+                  <Link to="/student/analytics">Analytics</Link>
                   <Link to="/leaderboard">Leaderboard</Link>
                 </>
               ) : (
                 <>
                   <Link to="/teacher/dashboard">Dashboard</Link>
                   <Link to="/teacher/create-quiz">Create Quiz</Link>
+                  <Link to="/teacher/alerts">Alerts</Link>
                 </>
               )}
               <span className="user-info">

@@ -66,9 +66,12 @@ const StudentDashboard = () => {
 
       <div className="card">
         <h2>Quick Actions</h2>
-        <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
+        <div style={{ display: 'flex', gap: '15px', marginTop: '20px', flexWrap: 'wrap' }}>
           <Link to="/student/quizzes" className="btn btn-primary">
             Browse Quizzes
+          </Link>
+          <Link to="/student/analytics" className="btn btn-success">
+            View Analytics
           </Link>
           <Link to="/leaderboard" className="btn btn-secondary">
             View Leaderboard
